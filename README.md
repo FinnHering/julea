@@ -27,6 +27,8 @@ $ cd julea
 JULEA has three mandatory dependencies (GLib, libbson and libfabric) and several optional ones that enable additional functionality.
 The dependencies can either be installed using [your operating system's package manager](doc/dependencies.md#manual-installation) or with JULEA's `install-dependencies` script that installs them into the `dependencies` subdirectory using [Spack](https://spack.io/).
 
+In order to use the `install-dependencies` script, python3, meson (and git) has to be installed on your system.
+
 ```console
 $ ./scripts/install-dependencies.sh
 ```
