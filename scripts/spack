@@ -177,6 +177,13 @@ spack_load_dependencies ()
 
 spack_install_dependencies ()
 {
+
+	
+	if $(command -v git) 
+	then 
+		echo "Git is required but wasn't found!" && exit 1 
+	fi
+
 	# FIXME does not fail if Git is not installed
 	if spack_clone
 	then
