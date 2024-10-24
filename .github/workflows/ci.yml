@@ -323,18 +323,18 @@ jobs:
           sudo apt --yes --purge autoremove
           sudo aa-remove-unknown || true
           sudo rm --recursive --force /var/lib/mysql
-      - name: Install dependencies
-        if: ${{ matrix.dependencies == 'system' }}
-        run: |
-          sudo apt update || true
-          sudo apt --yes --no-install-recommends install ninja-build pkgconf libglib2.0-dev libbson-dev libfabric-dev libgdbm-dev liblmdb-dev libsqlite3-dev libleveldb-dev libmongoc-dev libmariadb-dev librocksdb-dev libfuse3-dev libopen-trace-format-dev librados-dev
-          if test "${{ matrix.os.dist }}" != 'ubuntu-20.04'
-          then
-            sudo apt --yes --no-install-recommends install meson
-          else
-            sudo apt --yes --no-install-recommends install python3 python3-pip python3-setuptools python3-wheel
-            sudo pip3 install meson
-          fi
+      # - name: Install dependencies
+      #   if: ${{ matrix.dependencies == 'system' }}
+      #   run: |
+      #     sudo apt update || true
+      #     sudo apt --yes --no-install-recommends install ninja-build pkgconf libglib2.0-dev libbson-dev libfabric-dev libgdbm-dev liblmdb-dev libsqlite3-dev libleveldb-dev libmongoc-dev libmariadb-dev librocksdb-dev libfuse3-dev libopen-trace-format-dev librados-dev
+      #     if test "${{ matrix.os.dist }}" != 'ubuntu-20.04'
+      #     then
+      #       sudo apt --yes --no-install-recommends install meson
+      #     else
+      #       sudo apt --yes --no-install-recommends install python3 python3-pip python3-setuptools python3-wheel
+      #       sudo pip3 install meson
+      #     fi
       # - name: Cache dependencies
       #   id: cache
       #   if: ${{ matrix.dependencies == 'spack' }}
