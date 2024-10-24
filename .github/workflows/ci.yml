@@ -216,7 +216,7 @@ jobs:
     name: Tests
     needs: dependencies
     runs-on: ubuntu-latest
-    container: ghcr.io/finnhering/julea-${{ matrix.dependencies }}:${{ matrix.os.dist }}-${{ matrix.os.compiler }}-${{ matrix.os.compiler }}
+    container: ghcr.io/finnhering/julea-${{ matrix.dependencies }}:${{ matrix.os.dist }}-${{ matrix.os.compiler }}
     timeout-minutes: 60
     strategy:
       fail-fast: false
