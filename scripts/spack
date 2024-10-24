@@ -105,33 +105,13 @@ spack_install ()
 
 	spack_pkg="$1"
 
-
-	# Respect Docker TARGETPLATFORM
-	docker_target="${TARGETARCH:-amd64}"
-	docker_target_arch="$(echo "${docker_target}" | cut -d '/' -f2)"
-	target="x86_64"
-
-	case "${docker_target_arch}" in
-		"amd64")
-			target="x86_64"
-			;;
-		"arm64")
-			target="aarch64"
-			;;
-		*)
-			printf 'Unknown target platform: %s\n' "${docker_target_arch}" >&2
-			;;
-	esac
-
-	
-
 	test -n "${spack_pkg}" || return 1
 
 	spack_pkg="$(printf '%s' "${spack_pkg}" | sed 's/#/ /g')"
 
 	printf 'Installing "%s"\n' "${spack_pkg}"
 	# FIXME ignore errors?
-	spack_cmd install "${spack_pkg}" "target=${target}"
+	spack_cmd install "${spack_pkg}"
 }
 
 spack_get_dependencies ()

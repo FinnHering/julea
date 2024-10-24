@@ -212,8 +212,7 @@ jobs:
   tests:
     name: Tests
     needs: dependencies
-    runs-on: ubuntu-latest
-    container: docker pull ghcr.io/finnhering/julea-prebuilt:ubuntu-spack-gcc-24.04
+    runs-on: ${{ matrix.os.dist }}
     timeout-minutes: 60
     strategy:
       fail-fast: false
