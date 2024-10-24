@@ -107,7 +107,7 @@ spack_install ()
 
 
 	# Respect Docker TARGETPLATFORM
-	docker_target="${TARGETPLATFORM:-linux/amd64}"
+	docker_target="${BUILDARCH:-amd64}"
 	docker_target_arch = echo "${docker_target}" | cut -d '/' -f2
 	target = "x86"
 
