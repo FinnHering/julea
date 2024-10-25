@@ -314,15 +314,15 @@ jobs:
         # FIXME https://github.com/actions/runner-images/issues/9491
         run: |
           sudo sysctl vm.mmap_rnd_bits=28
-      - name: Clean up system packages
-        # We need to remove glib-network, otherwise libproxy might cause crashes.
-        # FIXME https://bugs.launchpad.net/ubuntu/+source/mariadb-10.1/+bug/1806263
-        # Ubuntu 20.04 and 22.04 have MySQL 8.0
-        run: |
-          sudo apt --yes purge glib-networking mysql-client mysql-client-8.0 mysql-server mysql-server-8.0
-          sudo apt --yes --purge autoremove
-          sudo aa-remove-unknown || true
-          sudo rm --recursive --force /var/lib/mysql
+      # - name: Clean up system packages
+      #   # We need to remove glib-network, otherwise libproxy might cause crashes.
+      #   # FIXME https://bugs.launchpad.net/ubuntu/+source/mariadb-10.1/+bug/1806263
+      #   # Ubuntu 20.04 and 22.04 have MySQL 8.0
+      #   run: |
+      #     sudo apt --yes purge glib-networking mysql-client mysql-client-8.0 mysql-server mysql-server-8.0
+      #     sudo apt --yes --purge autoremove
+      #     sudo aa-remove-unknown || true
+      #     sudo rm --recursive --force /var/lib/mysql
       # - name: Install dependencies
       #   if: ${{ matrix.dependencies == 'system' }}
       #   run: |
